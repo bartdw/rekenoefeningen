@@ -14,34 +14,18 @@
   </head>
   <body>
     <div class="align-middle center-div">
+      <form method="POST" action="/oefeningen">
+      {{ form.csrf_token }}
       <h1 class="text-center">
-        {{ score }}
+        {{ oefening.text }}
+        {{ form.antwoord(size=5) }}
       </h1>
-
-
-
-
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Vraag</th>
-            <th scope="col">Jouw antwoord</th>
-            <th scope="col">Juist antwoord</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for oef in oefeningen %}
-          <tr>
-            <td>{{ oef.text }}</td>
-            <td>{{ oef.antwoord }}</td>
-            <td>{{ oef.result }}</td>
-          </tr>
-        </tbody>
-          {% endfor %}
-          </table>
+      </form>
     </div>
+    <div>naam: {{session.naam}}</div>
+    <div>oefening: {{session.oefening}} {{session.niveau}}</div>
+    <div>count: {{session.count}}</div>
     <div><a href="/">opnieuw</a></div>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

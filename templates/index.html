@@ -14,12 +14,21 @@
   </head>
   <body>
     <div class="align-middle center-div">
-      <form method="POST" action="/sommen">
-      {{ form.csrf_token }}
+      <form method="POST" action="/">
+      {{ home_form.csrf_token }}
       <h1 class="text-center">
-        {{ oefening.text }}
-        {{ form.antwoord(size=5) }}
+        <div>Naam {{ home_form.naam}}</div>
       </h1>
+      <h1 class="text-center">
+        <div>Oefening {{ home_form.oefening }}</div>
+      </h1>
+      <h1 class="text-center">
+        <div>Niveau {{ home_form.niveau }}</div>
+      </h1>
+    </h1>
+    <h1 class="text-center">
+      <div>{{ home_form.submit }}</div>
+    </h1>
       </form>
     </div>
     count: {{count}}
